@@ -7,9 +7,10 @@ if [[ -n $TRAVIS_TAG ]]; then
     ./release $version
 
     git commit -a -m "Updating static website for Travis build: https://travis-ci.org/$TRAVIS_REPO_SLUG/builds/$TRAVIS_BUILD_ID" && {
+      git push origin HEAD || true
+    }
 
     cd ..
 
     rm static-website-master
 fi
-
